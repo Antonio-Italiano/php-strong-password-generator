@@ -1,5 +1,8 @@
 <?php
-// $password_lengt = $_GET['password-lenght'];
+# CHOSEN NUMBER RECOVERY 
+$psw_lenght = $_GET['psw-lenght'] ?? null;
+// var_dump($psw_lengt);
+// die();
 ?>
 
 <!DOCTYPE html>
@@ -23,13 +26,14 @@
   <form action="#" method="GET" class="p-4 bg-white">
     <div class="row">
       <div class="col-7 d-flex align-items-center">
-        <label for="password-lenght" class="form-label">Lunghezza password:</label>
+        <label for="psw-lenght" class="form-label">Lunghezza password:</label>
       </div>
       <div class="col-3 d-flex align-items-center">
-          <input value="4" type="text" class="form-control border border-2 border-secondary" id="password-lenght" name="password-lenght">
+          <input value="<?= $psw_lenght ?>" type="number" id="psw-lenght" min="6" name="psw-lenght" class="form-control border border-2 border-secondary">
       </div>
       <div class="col-12 mt-5">
         <button class="btn btn-primary">Invia</button>
+        <a href="index.php" class="btn btn-secondary">Anulla</a>
       </div>
     </div>
   </form>
