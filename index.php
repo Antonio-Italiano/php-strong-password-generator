@@ -1,13 +1,10 @@
 <?php
-# CHOSEN NUMBER RECOVERY 
-// $psw_lenght = $_GET['psw-lenght'] ?? null;
-
 include __DIR__ . '/function.php';
 
 if (isset($_GET['psw-lenght'])) {
   $result = random_password($_GET['psw-lenght']);
 
-  if ($result === true) header('Location: succes.php');
+  if ($result === true) header('Location: success.php');
 }
 
 ?>
@@ -28,8 +25,9 @@ if (isset($_GET['psw-lenght'])) {
     <h1>Strong Password Generator</h1>  
     <h2 class="text-white">Genera una password sicura</h2>
   </div>
+   <!-- ERROR -->
   <?php if (isset($result)) : ?>
-  <div class="result bg-danger p-3 rounded mb-5"> <?= $result ?> </div>
+  <div class="bg-danger p-3 rounded mb-5"> <?= $result ?> </div>
   <?php endif ?>
   <!-- FORM CREATED TO SEND PASSWORD LENGTH -->
   <form action="#" method="GET" class="p-4 bg-white">

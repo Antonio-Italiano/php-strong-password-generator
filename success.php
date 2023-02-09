@@ -17,7 +17,7 @@ if (empty($_SESSION['password'])){
     <title>PHP Strong Password Generator</title>
 </head>
 <body class="container w-50 pt-5">
-    <div class="result p-3 rounded mb-5">La password è: <?= $_SESSION['password'] ?> </div>
+    <div class="bg-primary p-3 rounded mb-5">La password è: <?= $_SESSION['password'] ?> </div>
     <a href="index.php" class="btn btn-secondary">Ricalcola</a>
 </body>
 </html>
