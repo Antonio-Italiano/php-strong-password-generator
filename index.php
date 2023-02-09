@@ -1,8 +1,15 @@
 <?php
 # CHOSEN NUMBER RECOVERY 
-$psw_lenght = $_GET['psw-lenght'] ?? null;
-// var_dump($psw_lengt);
-// die();
+// $psw_lenght = $_GET['psw-lenght'] ?? null;
+
+include __DIR__ . '/function.php';
+
+if (isset($_GET['psw-lenght'])) {
+  $result = random_password($_GET['psw-lenght']);
+
+  if ($result === true) header('Location: succes.php');
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +28,9 @@ $psw_lenght = $_GET['psw-lenght'] ?? null;
     <h1>Strong Password Generator</h1>  
     <h2 class="text-white">Genera una password sicura</h2>
   </div>
-  <div class="result p-3 rounded mb-5">Nessun parametro valido inserito</div>
+  <?php if (isset($result)) : ?>
+  <div class="result bg-danger p-3 rounded mb-5"> <?= $result ?> </div>
+  <?php endif ?>
   <!-- FORM CREATED TO SEND PASSWORD LENGTH -->
   <form action="#" method="GET" class="p-4 bg-white">
     <div class="row">
@@ -29,7 +38,7 @@ $psw_lenght = $_GET['psw-lenght'] ?? null;
         <label for="psw-lenght" class="form-label">Lunghezza password:</label>
       </div>
       <div class="col-3 d-flex align-items-center">
-          <input value="<?= $psw_lenght ?>" type="number" id="psw-lenght" min="6" name="psw-lenght" class="form-control border border-2 border-secondary">
+          <input type="number" id="psw-lenght" min="6" name="psw-lenght" class="form-control border border-2 border-secondary">
       </div>
       <div class="col-12 mt-5">
         <button class="btn btn-primary">Invia</button>

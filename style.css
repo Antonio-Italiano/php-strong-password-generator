@@ -1,0 +1,12 @@
+body {
+    background-color: #001632;
+}
+
+h1 {
+    color: #7F8B99;
+}
+
+.col-7,
+.col-5 {
+    min-height: 10vh;
+}
